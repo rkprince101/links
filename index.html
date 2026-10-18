@@ -1,0 +1,59 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+    <title>Useful websites, explained</title>
+    <meta name="description" content="Every website, GitHub repo and AI tool from the @flutter.coder_ reels, in one place." />
+    <meta property="og:title" content="Useful websites, explained" />
+    <meta property="og:description" content="Every website, GitHub repo and AI tool from the reels, in one place." />
+    <meta property="og:type" content="website" />
+    <meta property="og:image" content="og.png" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="theme-color" content="#E4E3DF" media="(prefers-color-scheme: light)" />
+    <meta name="theme-color" content="#091422" media="(prefers-color-scheme: dark)" />
+    <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect x='4' y='4' width='56' height='56' rx='12' fill='%23FBFBF9' stroke='%2316171A' stroke-width='5'/%3E%3Ctext x='32' y='42' font-family='monospace' font-weight='800' font-size='26' text-anchor='middle' fill='%2316171A'%3EWF%3C/text%3E%3C/svg%3E" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Archivo:wght@700;800;900&family=Inter:wght@500;600;700&family=JetBrains+Mono:wght@500;700;800&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="paper" aria-hidden="true"></div>
+    <header class="strip">
+      <span class="brand"><b id="brand-a">WEB</b> <span id="brand-b">FILES</span></span>
+      <a class="handle" id="handle" href="#">@flutter.coder_</a>
+    </header>
+
+    <main class="wrap">
+      <section class="hero card">
+        <p class="eyebrow" id="count">Case files</p>
+        <h1 id="title">Useful websites, explained</h1>
+        <p class="lede" id="tagline"></p>
+        <div class="hero-actions">
+          <a class="btn btn-solid" id="follow" href="#" rel="noopener">Follow on Instagram <span aria-hidden="true">→</span></a>
+        </div>
+        <div class="stamp" aria-hidden="true">Checked</div>
+      </section>
+
+      <section class="controls" aria-label="Find a case">
+        <label class="search">
+          <span class="sr-only">Search</span>
+          <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="10.5" cy="10.5" r="6.5" /><path d="M15.5 15.5 21 21" /></svg>
+          <input id="q" type="search" placeholder="Search sites, repos, tools" autocomplete="off" />
+        </label>
+        <div class="chips" id="chips" role="group" aria-label="Filter by kind"></div>
+      </section>
+
+      <section id="cases" class="cases" aria-live="polite"></section>
+      <p class="empty" id="empty" hidden>Nothing matches that yet.</p>
+    </main>
+
+    <footer class="wrap foot">
+      <p>Each case was checked on the day it was filed. Sites change, so check prices and features before you rely on them.</p>
+    </footer>
+
+    <script src="links.js"></script>
+    <script src="app.js"></script>
+  </body>
+</html>
