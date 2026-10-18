@@ -17,50 +17,53 @@
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Roboto+Flex:opsz,wght@8..144,400..700&display=swap" rel="stylesheet" />
-    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@20..48,400..600,0..1,0&display=block" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@20..48,400..500,0..1,0&display=block" rel="stylesheet" />
     <link rel="stylesheet" href="styles.css" />
   </head>
   <body>
-    <header class="top-app-bar" id="appbar">
-      <div class="bar-inner">
-        <span class="bar-logo" aria-hidden="true"><span class="ms filled">arrow_selector_tool</span></span>
-        <span class="bar-title" id="handle-title">@flutter.coder_</span>
-        <a class="icon-btn" id="ig" href="#" target="_blank" rel="noopener" aria-label="Open Instagram profile">
-          <span class="ms">open_in_new</span>
+    <header class="md3-top-app-bar" id="appbar">
+      <div class="md3-top-app-bar__inner">
+        <span class="md3-top-app-bar__logo" aria-hidden="true"><span class="ms filled">arrow_selector_tool</span></span>
+        <span class="md3-top-app-bar__title" id="handle-title">@flutter.coder_</span>
+        <a class="md3-icon-button md3-state" id="ig" href="#" target="_blank" rel="noopener" aria-label="Open the Instagram profile">
+          <span class="ms" aria-hidden="true">open_in_new</span>
         </a>
       </div>
     </header>
 
-    <main class="wrap">
-      <section class="hero">
-        <p class="hero-label"><span class="ms filled">folder_open</span><span id="count">Case files</span></p>
-        <h1 id="title">Useful websites, explained</h1>
-        <p class="hero-body" id="tagline"></p>
-        <div class="hero-actions">
-          <a class="btn filled" id="follow" href="#" target="_blank" rel="noopener"><span class="ms">person_add</span>Follow on Instagram</a>
+    <main class="md3-body">
+      <section class="hero" aria-labelledby="title">
+        <p class="hero__label"><span class="ms filled" aria-hidden="true">folder_open</span><span id="count">Case files</span></p>
+        <h1 class="hero__headline" id="title">Useful websites, explained</h1>
+        <p class="hero__supporting" id="tagline"></p>
+        <div class="hero__actions">
+          <a class="md3-button md3-button--filled md3-button--medium md3-state" id="follow" href="#" target="_blank" rel="noopener">
+            <span class="ms" aria-hidden="true">person_add</span>Follow on Instagram
+          </a>
         </div>
       </section>
 
       <section class="controls" aria-label="Find a case">
-        <label class="search-bar">
-          <span class="ms">search</span>
-          <span class="sr-only">Search</span>
+        <label class="md3-search-bar">
+          <span class="ms" aria-hidden="true">search</span>
+          <span class="sr-only">Search the case files</span>
           <input id="q" type="search" placeholder="Search sites, repos, tools" autocomplete="off" />
         </label>
-        <div class="chips" id="chips" role="group" aria-label="Filter by kind"></div>
+        <div class="md3-chip-set" id="chips" role="group" aria-label="Filter by kind"></div>
       </section>
 
-      <h2 class="section-title">Case files</h2>
-      <section id="cases" class="cases" aria-live="polite"></section>
+      <h2 class="md3-section-title">Case files</h2>
+      <section id="cases" class="md3-card-grid" aria-live="polite"></section>
       <p class="empty" id="empty" hidden>Nothing matches that yet.</p>
 
-      <h2 class="section-title" id="extras-title">Made by me</h2>
-      <section class="extras" id="extras"></section>
-    </main>
+      <h2 class="md3-section-title" id="extras-title">Made by me</h2>
+      <section id="extras" class="md3-card-grid"></section>
 
-    <footer class="wrap foot">
-      <p>Each case was checked on the day it was filed. Sites change, so check prices and features before you rely on them.</p>
-    </footer>
+      <hr class="md3-divider" />
+      <footer class="site-footer">
+        <p>Each case was checked on the day it was filed. Sites change, so check prices and features before you rely on them.</p>
+      </footer>
+    </main>
 
     <script src="links.js"></script>
     <script src="app.js"></script>

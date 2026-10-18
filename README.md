@@ -22,7 +22,7 @@ No build step. Hosted on GitHub Pages from the `main` branch root.
 ## Change the look or the name
 
 - Series name, title, tagline, handle: `SITE` at the top of `links.js`.
-- Look: Material 3 baseline scheme in `styles.css` (`--md-*` colour tokens, light and dark follow the
+- Look: Material 3 per the material-3 skill (github.com/hamen/material-3-skill): `--md-sys-*` colour, typescale, shape, motion and spacing tokens in `styles.css`, light and dark follow the
   device setting), Roboto Flex + Material Symbols Rounded from Google Fonts.
 - My own apps (the "Made by me" section): `EXTRAS` in `links.js`.
 - `og.png` is the link preview image (1200x630).
