@@ -434,7 +434,7 @@ h1, h2, h3, p { margin: 0; }
   white-space: nowrap;
 }
 .md3-chip .ms { font-size: 1.125rem; }
-.md3-chip--filter { cursor: pointer; }
+.md3-chip--filter { cursor: pointer; border-color: var(--md-sys-color-outline); }
 .md3-chip--filter::before {
   content: "";
   position: absolute;
@@ -468,7 +468,7 @@ h1, h2, h3, p { margin: 0; }
   gap: var(--layout-gutter);
 }
 @media (min-width: 600px) {
-  .md3-card-grid { grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); }
+  .md3-card-grid { grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); }
   .md3-card-grid--single { grid-template-columns: 1fr; }
 }
 .md3-card {

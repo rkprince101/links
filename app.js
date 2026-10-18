@@ -17,6 +17,7 @@
     return node;
   }
   function icon(name, filled) { return el("span", { className: "ms" + (filled ? " filled" : ""), "aria-hidden": "true", text: name }); }
+  function newTab() { return el("span", { className: "sr-only", text: " (opens in a new tab)" }); }
   function host(url) {
     try { return new URL(url).host.replace(/^www\./, ""); } catch (e) { return url; }
   }
@@ -80,8 +81,8 @@
         (c.tags || []).length ? el("div", { className: "md3-chip-set" }, c.tags.map(tag)) : null,
       ]),
       el("div", { className: "md3-card__actions" }, [
-        c.reel ? el("a", { className: "md3-button md3-button--outlined md3-state", href: c.reel, target: "_blank", rel: "noopener" }, [icon("play_circle"), "Watch the reel"]) : null,
-        el("a", { className: "md3-button md3-button--filled md3-state", href: c.url, target: "_blank", rel: "noopener" }, [icon("open_in_new"), isRepo ? "Open repo" : "Open site"]),
+        c.reel ? el("a", { className: "md3-button md3-button--outlined md3-state", href: c.reel, target: "_blank", rel: "noopener" }, [icon("play_circle"), "Watch the reel", newTab()]) : null,
+        el("a", { className: "md3-button md3-button--filled md3-state", href: c.url, target: "_blank", rel: "noopener" }, [icon("open_in_new"), isRepo ? "Open repo" : "Open site", newTab()]),
       ]),
     ]);
   }
@@ -112,7 +113,7 @@
           (x.tags || []).length ? el("div", { className: "md3-chip-set" }, x.tags.map(tag)) : null,
         ]),
         el("div", { className: "md3-card__actions" }, [
-          el("a", { className: "md3-button md3-button--filled md3-state", href: x.url, target: "_blank", rel: "noopener" }, [icon("shop"), x.cta || "Open"]),
+          el("a", { className: "md3-button md3-button--filled md3-state", href: x.url, target: "_blank", rel: "noopener" }, [icon("shop"), x.cta || "Open", newTab()]),
         ]),
       ]),
     );
