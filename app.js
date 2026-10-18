@@ -97,8 +97,11 @@
     box.textContent = "";
     list.forEach(function (c) { box.appendChild(card(c, c === cases[0])); });
     $("empty").hidden = list.length > 0;
+    if (announce) $("results-status").textContent = list.length + (list.length === 1 ? " case" : " cases");
   }
+  var announce = false;
   render();
+  announce = true;
 
   // filled cards for my own apps (full width)
   if (!extras.length) $("extras-title").hidden = true;
