@@ -26,6 +26,17 @@ window.EXTRAS = [
 
 window.CASES = [
   {
+    n: 2,
+    name: "VoiceStudio",
+    url: "https://github.com/debpalash/VoiceStudio",
+    kind: "GitHub repo", // Website | GitHub repo | AI tool
+    blurb:
+      "A free, open-source voice studio that runs on your own computer: voice cloning, voice design, video dubbing, audiobooks and dictation in 646 languages. Only clone voices you have permission to use.",
+    tags: ["Free", "Open source", "Runs locally"],
+    reel: "https://www.instagram.com/reel/DeoqKs9syEV/",
+    date: "2026-10-18",
+  },
+  {
     n: 1,
     name: "Guitoro",
     url: "https://guitoro.com",

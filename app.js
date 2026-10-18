@@ -28,6 +28,8 @@
     if (/windows/i.test(t)) return "desktop_windows";
     if (/web/i.test(t)) return "language";
     if (/music/i.test(t)) return "music_note";
+    if (/open source/i.test(t)) return "code";
+    if (/locally|local/i.test(t)) return "computer";
     return "label";
   }
   // tags are assist chips (display only)
