@@ -10,6 +10,20 @@ window.SITE = {
   instagram: "https://www.instagram.com/flutter.coder_/",
 };
 
+// My own things, shown under the case files.
+window.EXTRAS = [
+  {
+    label: "Made by me",
+    name: "Hushroom",
+    url: "https://play.google.com/store/apps/details?id=com.focufuse.focusage",
+    blurb:
+      "The focus app I built. A Pomodoro timer with tasks, app blocking and ambient sounds, and habits that grow into a garden.",
+    tags: ["Free", "Ad-free", "Android", "Windows", "Web"],
+    cta: "Get it on Google Play",
+    icon: "hushroom.png",
+  },
+];
+
 window.CASES = [
   {
     n: 1,

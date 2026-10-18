@@ -11,43 +11,51 @@
     <meta property="og:image" content="https://rkprince101.github.io/links/og.png" />
     <meta property="og:url" content="https://rkprince101.github.io/links/" />
     <meta name="twitter:card" content="summary_large_image" />
-    <meta name="theme-color" content="#E4E3DF" media="(prefers-color-scheme: light)" />
-    <meta name="theme-color" content="#091422" media="(prefers-color-scheme: dark)" />
-    <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect x='4' y='4' width='56' height='56' rx='12' fill='%23FBFBF9' stroke='%2316171A' stroke-width='5'/%3E%3Ctext x='32' y='42' font-family='monospace' font-weight='800' font-size='26' text-anchor='middle' fill='%2316171A'%3EWF%3C/text%3E%3C/svg%3E" />
+    <meta name="theme-color" content="#FEF7FF" media="(prefers-color-scheme: light)" />
+    <meta name="theme-color" content="#141218" media="(prefers-color-scheme: dark)" />
+    <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='18' fill='%236750A4'/%3E%3Cpath d='M22 14v32l9-8 6 13 6-3-6-12h12z' fill='%23fff'/%3E%3C/svg%3E" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=Archivo:wght@700;800;900&family=Inter:wght@500;600;700&family=JetBrains+Mono:wght@500;700;800&display=swap" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Flex:opsz,wght@8..144,400..700&display=swap" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@20..48,400..600,0..1,0&display=block" rel="stylesheet" />
     <link rel="stylesheet" href="styles.css" />
   </head>
   <body>
-    <div class="paper" aria-hidden="true"></div>
-    <header class="strip">
-      <span class="brand"><b id="brand-a">WEB</b> <span id="brand-b">FILES</span></span>
-      <a class="handle" id="handle" href="#">@flutter.coder_</a>
+    <header class="top-app-bar" id="appbar">
+      <div class="bar-inner">
+        <span class="bar-logo" aria-hidden="true"><span class="ms filled">arrow_selector_tool</span></span>
+        <span class="bar-title" id="handle-title">@flutter.coder_</span>
+        <a class="icon-btn" id="ig" href="#" target="_blank" rel="noopener" aria-label="Open Instagram profile">
+          <span class="ms">open_in_new</span>
+        </a>
+      </div>
     </header>
 
     <main class="wrap">
-      <section class="hero card">
-        <p class="eyebrow" id="count">Case files</p>
+      <section class="hero">
+        <p class="hero-label"><span class="ms filled">folder_open</span><span id="count">Case files</span></p>
         <h1 id="title">Useful websites, explained</h1>
-        <p class="lede" id="tagline"></p>
+        <p class="hero-body" id="tagline"></p>
         <div class="hero-actions">
-          <a class="btn btn-solid" id="follow" href="#" rel="noopener">Follow on Instagram <span aria-hidden="true">→</span></a>
+          <a class="btn filled" id="follow" href="#" target="_blank" rel="noopener"><span class="ms">person_add</span>Follow on Instagram</a>
         </div>
-        <div class="stamp" aria-hidden="true">Checked</div>
       </section>
 
       <section class="controls" aria-label="Find a case">
-        <label class="search">
+        <label class="search-bar">
+          <span class="ms">search</span>
           <span class="sr-only">Search</span>
-          <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="10.5" cy="10.5" r="6.5" /><path d="M15.5 15.5 21 21" /></svg>
           <input id="q" type="search" placeholder="Search sites, repos, tools" autocomplete="off" />
         </label>
         <div class="chips" id="chips" role="group" aria-label="Filter by kind"></div>
       </section>
 
+      <h2 class="section-title">Case files</h2>
       <section id="cases" class="cases" aria-live="polite"></section>
       <p class="empty" id="empty" hidden>Nothing matches that yet.</p>
+
+      <h2 class="section-title" id="extras-title">Made by me</h2>
+      <section class="extras" id="extras"></section>
     </main>
 
     <footer class="wrap foot">

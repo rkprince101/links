@@ -22,7 +22,9 @@ No build step. Hosted on GitHub Pages from the `main` branch root.
 ## Change the look or the name
 
 - Series name, title, tagline, handle: `SITE` at the top of `links.js`.
-- Colours and fonts: `styles.css` (light = grid paper, dark mode = blueprint, same as the reels).
+- Look: Material 3 baseline scheme in `styles.css` (`--md-*` colour tokens, light and dark follow the
+  device setting), Roboto Flex + Material Symbols Rounded from Google Fonts.
+- My own apps (the "Made by me" section): `EXTRAS` in `links.js`.
 - `og.png` is the link preview image (1200x630).
 
 ## Preview locally

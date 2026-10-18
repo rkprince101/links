@@ -1,7 +1,8 @@
-// Renders the case files from links.js, with search and a kind filter.
+// Renders the case files from links.js (Material 3 markup), with search and a kind filter.
 (function () {
   var site = window.SITE || {};
   var cases = (window.CASES || []).slice().sort(function (a, b) { return b.n - a.n; });
+  var extras = window.EXTRAS || [];
   var $ = function (id) { return document.getElementById(id); };
 
   function el(tag, attrs, children) {
@@ -11,58 +12,72 @@
       else if (k === "className") node.className = attrs[k];
       else node.setAttribute(k, attrs[k]);
     });
-    (children || []).forEach(function (c) { if (c) node.appendChild(c); });
+    (children || []).forEach(function (c) { if (c) node.appendChild(typeof c === "string" ? document.createTextNode(c) : c); });
     return node;
   }
+  function icon(name, filled) { return el("span", { className: "ms" + (filled ? " filled" : ""), "aria-hidden": "true", text: name }); }
 
   function host(url) {
     try { return new URL(url).host.replace(/^www\./, ""); } catch (e) { return url; }
   }
-
   function pad(n) { return n < 10 ? "0" + n : String(n); }
+  function tagIcon(t) {
+    if (/free|no sign/i.test(t)) return "check_circle";
+    if (/android/i.test(t)) return "android";
+    if (/windows/i.test(t)) return "desktop_windows";
+    if (/web/i.test(t)) return "language";
+    if (/music/i.test(t)) return "music_note";
+    return "sell";
+  }
+  function tag(t) { return el("span", { className: "tag" + (/free|no sign|ad-free/i.test(t) ? " good" : "") }, [icon(tagIcon(t)), t]); }
 
   // header + hero
-  if (site.brand) { $("brand-a").textContent = site.brand[0]; $("brand-b").textContent = site.brand[1]; }
-  if (site.title) { $("title").textContent = site.title; }
+  if (site.title) $("title").textContent = site.title;
   $("tagline").textContent = site.tagline || "";
-  $("handle").textContent = site.handle || "";
-  $("handle").href = site.instagram || "#";
+  $("handle-title").textContent = site.handle || "";
+  $("ig").href = site.instagram || "#";
   $("follow").href = site.instagram || "#";
   $("count").textContent = cases.length + (cases.length === 1 ? " case filed" : " cases filed");
+  window.addEventListener("scroll", function () { $("appbar").classList.toggle("scrolled", window.scrollY > 4); }, { passive: true });
 
-  // filters
+  // filter chips (hidden until there is more than one kind)
   var kinds = ["All"].concat(cases.map(function (c) { return c.kind; }).filter(function (k, i, a) { return a.indexOf(k) === i; }));
   var state = { kind: "All", q: "" };
-  kinds.forEach(function (k) {
-    var b = el("button", { className: "chip", type: "button", "aria-pressed": k === "All" ? "true" : "false", text: k });
-    b.addEventListener("click", function () {
-      state.kind = k;
-      [].forEach.call($("chips").children, function (c) { c.setAttribute("aria-pressed", c.textContent === k ? "true" : "false"); });
-      render();
+  function paintChips() {
+    [].forEach.call($("chips").children, function (c) {
+      var on = c.getAttribute("data-kind") === state.kind;
+      c.setAttribute("aria-pressed", on ? "true" : "false");
+      c.firstChild.hidden = !on;
     });
+  }
+  kinds.forEach(function (k) {
+    var b = el("button", { className: "chip", type: "button", "data-kind": k }, [icon("check"), k]);
+    b.addEventListener("click", function () { state.kind = k; paintChips(); render(); });
     $("chips").appendChild(b);
   });
-  if (kinds.length < 3) $("chips").hidden = true; // one kind only: nothing to filter yet
+  paintChips();
+  if (kinds.length < 3) $("chips").hidden = true;
   $("q").addEventListener("input", function (e) { state.q = e.target.value.trim().toLowerCase(); render(); });
 
   function card(c, newest) {
-    var tags = (c.tags || []).map(function (t) {
-      return el("span", { className: "pill" + (/free|no sign/i.test(t) ? " green" : ""), text: t });
-    });
-    return el("article", { className: "card case" + (newest ? " is-new" : ""), id: "case-" + pad(c.n) }, [
-      newest ? el("span", { className: "new", text: "New", "aria-label": "Newest" }) : null,
-      el("div", { className: "case-top" }, [
-        el("span", { className: "case-no", text: "CASE " + pad(c.n) }),
-        el("span", { className: "pill kind", text: c.kind }),
-        c.date ? el("time", { className: "case-date", datetime: c.date, text: c.date }) : null,
+    var isRepo = c.kind === "GitHub repo";
+    return el("article", { className: "card case", id: "case-" + pad(c.n) }, [
+      el("div", { className: "case-media" }, [
+        el("span", { className: "monogram", "aria-hidden": "true", text: pad(c.n) }),
+        el("div", { className: "case-head" }, [
+          el("div", { className: "overline", text: "Case " + pad(c.n) + " · " + c.kind }),
+          el("div", { className: "sub", text: host(c.url) + (c.date ? " · " + c.date : "") }),
+        ]),
+        newest ? el("span", { className: "badge-new", text: "New" }) : null,
       ]),
-      el("h2", { text: c.name }),
-      el("p", { className: "host", text: host(c.url) }),
-      el("p", { className: "blurb", text: c.blurb }),
-      tags.length ? el("div", { className: "tags" }, tags) : null,
-      el("div", { className: "case-actions" }, [
-        el("a", { className: "btn btn-solid", href: c.url, target: "_blank", rel: "noopener", text: "Open " + (c.kind === "GitHub repo" ? "repo" : "site") + " ↗" }),
-        c.reel ? el("a", { className: "btn btn-ghost", href: c.reel, target: "_blank", rel: "noopener", text: "Watch the reel" }) : null,
+      el("div", { className: "case-body" }, [
+        el("h3", { text: c.name }),
+        el("p", { className: "blurb", text: c.blurb }),
+        (c.tags || []).length ? el("div", { className: "tags" }, c.tags.map(tag)) : null,
+      ]),
+      el("div", { className: "card-actions" }, [
+        c.reel ? el("a", { className: "btn outlined", href: c.reel, target: "_blank", rel: "noopener" }, [icon("play_circle"), "Watch the reel"]) : null,
+        el("a", { className: "btn filled", href: c.url, target: "_blank", rel: "noopener" }, [icon("open_in_new"), isRepo ? "Open repo" : "Open site"]),
       ]),
     ]);
   }
@@ -78,6 +93,25 @@
     list.forEach(function (c) { box.appendChild(card(c, c === cases[0])); });
     $("empty").hidden = list.length > 0;
   }
-
   render();
+
+  // my own apps
+  if (!extras.length) $("extras-title").hidden = true;
+  extras.forEach(function (x) {
+    $("extras").appendChild(
+      el("article", { className: "card extra" }, [
+        el("div", { className: "extra-top" }, [
+          x.icon ? el("img", { className: "extra-icon", src: x.icon, alt: x.name + " icon", width: "72", height: "72", loading: "lazy" }) : null,
+        ]),
+        el("div", { className: "case-body" }, [
+          el("h3", { text: x.name }),
+          el("p", { className: "blurb", text: x.blurb }),
+          (x.tags || []).length ? el("div", { className: "tags" }, x.tags.map(tag)) : null,
+        ]),
+        el("div", { className: "card-actions" }, [
+          el("a", { className: "btn filled", href: x.url, target: "_blank", rel: "noopener" }, [icon("shop"), x.cta || "Open"]),
+        ]),
+      ]),
+    );
+  });
 })();
