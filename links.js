@@ -6,8 +6,8 @@ window.SITE = {
   brand: ["WEB", "FILES"], // placeholder series name, same as the reels
   title: "Useful websites, explained",
   tagline: "Every website, GitHub repo and AI tool from the reels, in one place.",
-  handle: "@flutter.coder_",
-  instagram: "https://www.instagram.com/flutter.coder_/",
+  handle: "@useful.cursor",
+  instagram: "https://www.instagram.com/useful.cursor/",
 };
 
 // My own things, shown under the case files.
