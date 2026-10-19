@@ -26,6 +26,17 @@ window.EXTRAS = [
 
 window.CASES = [
   {
+    n: 3,
+    name: "PhotoCraft",
+    url: "https://github.com/storytold/photocraft",
+    kind: "GitHub repo", // Website | GitHub repo | AI tool
+    blurb:
+      "An open-source rebuild of Photoshop written in Rust: layers, masks, adjustment layers, layer styles, brushes and real PSD files. Runs offline on Windows, Mac and Linux.",
+    tags: ["Free", "Open source", "Runs offline"],
+    reel: "https://www.instagram.com/reel/DerC49jM-te/",
+    date: "2026-10-19",
+  },
+  {
     n: 2,
     name: "VoiceStudio",
     url: "https://github.com/debpalash/VoiceStudio",
