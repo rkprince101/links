@@ -26,6 +26,17 @@ window.EXTRAS = [
 
 window.CASES = [
   {
+    n: 4,
+    name: "AI Job Search",
+    url: "https://github.com/MadsLorentzen/ai-job-search",
+    kind: "GitHub repo", // Website | GitHub repo | AI tool
+    blurb:
+      "An open-source job application workflow: it reads each posting, scores your fit, tailors your CV and cover letter, and a second agent reviews the draft. Needs Claude Code (paid). Keep your copy private.",
+    tags: ["Open source", "MIT", "Careers"],
+    reel: "https://www.instagram.com/reel/DeyZHwis8tt/",
+    date: "2026-10-22",
+  },
+  {
     n: 3,
     name: "PhotoCraft",
     url: "https://github.com/storytold/photocraft",
