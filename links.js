@@ -26,6 +26,17 @@ window.EXTRAS = [
 
 window.CASES = [
   {
+    n: 5,
+    name: "Permit Pending",
+    url: "https://permit.petercai.com/",
+    kind: "Website", // Website | GitHub repo | AI tool
+    blurb:
+      "A free city builder where you're the mayor, not a god: every building, bus lane and factory has to get through hearings, objections, appeals and lawsuits. Runs in the browser on a desktop or laptop, no account.",
+    tags: ["Free", "Browser game", "No sign-up"],
+    reel: "https://www.instagram.com/reel/DeywShWs7lH/",
+    date: "2026-10-22",
+  },
+  {
     n: 4,
     name: "AI Job Search",
     url: "https://github.com/MadsLorentzen/ai-job-search",
