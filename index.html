@@ -16,55 +16,48 @@
     <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='18' fill='%236750A4'/%3E%3Cpath d='M22 14v32l9-8 6 13 6-3-6-12h12z' fill='%23fff'/%3E%3C/svg%3E" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=Roboto+Flex:opsz,wght@8..144,400..700&display=swap" rel="stylesheet" />
-    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@20..48,400..500,0..1,0&display=block" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Flex:opsz,wdth,wght@8..144,25..151,300..900&family=Roboto+Mono:wght@400;500&display=swap" rel="stylesheet" />
     <link rel="stylesheet" href="styles.css" />
   </head>
   <body>
-    <header class="md3-top-app-bar" id="appbar">
-      <div class="md3-top-app-bar__inner">
-        <span class="md3-top-app-bar__logo" aria-hidden="true"><span class="ms filled">arrow_selector_tool</span></span>
-        <span class="md3-top-app-bar__title" id="handle-title">@useful.cursor</span>
-        <a class="md3-icon-button md3-state" id="ig" href="#" target="_blank" rel="noopener" aria-label="Open the Instagram profile (opens in a new tab)">
-          <span class="ms" aria-hidden="true">open_in_new</span>
-        </a>
-      </div>
-    </header>
-
-    <main class="md3-body">
-      <section class="hero" aria-labelledby="title">
-        <p class="hero__label"><span class="ms filled" aria-hidden="true">folder_open</span><span id="count">Case files</span></p>
-        <h1 class="hero__headline" id="title">Useful websites, explained</h1>
-        <p class="hero__supporting" id="tagline"></p>
-        <div class="hero__actions">
-          <a class="md3-button md3-button--filled md3-button--medium md3-state" id="follow" href="#" target="_blank" rel="noopener">
-            <span class="ms" aria-hidden="true">person_add</span>Follow on Instagram<span class="sr-only"> (opens in a new tab)</span>
-          </a>
+    <div class="wrap">
+      <header class="top">
+        <div class="brand">
+          <span class="eyebrow" id="eyebrow">Useful websites, explained</span>
+          <h1 id="handle">@useful.cursor<span class="cursor" aria-hidden="true"></span></h1>
+          <p class="tagline" id="tagline"></p>
         </div>
-      </section>
+        <nav class="links" aria-label="Follow">
+          <a class="chip-link" id="ig" href="#" target="_blank" rel="noopener">Instagram ↗<span class="sr"> (opens in a new tab)</span></a>
+          <a class="chip-link" id="yt" href="#" target="_blank" rel="noopener">YouTube ↗<span class="sr"> (opens in a new tab)</span></a>
+        </nav>
+      </header>
 
-      <section class="controls" aria-label="Find a case">
-        <label class="md3-search-bar">
-          <span class="ms" aria-hidden="true">search</span>
-          <span class="sr-only">Search the case files</span>
+      <section class="latest" id="latest" aria-label="Latest case" hidden></section>
+
+      <div class="toolbar">
+        <div class="tabs" id="tabs" role="group" aria-label="Filter by kind"></div>
+        <label class="search">
+          <span class="sr">Search the cases</span>
           <input id="q" type="search" placeholder="Search sites, repos, tools" autocomplete="off" />
         </label>
-        <div class="md3-chip-set" id="chips" role="group" aria-label="Filter by kind"></div>
+      </div>
+
+      <p class="sr" id="results-status" role="status" aria-live="polite"></p>
+      <section class="cases" id="cases" aria-label="Cases"></section>
+      <div class="empty" id="empty" hidden><b>Nothing matches that yet.</b> Try another word, or pick All.</div>
+
+      <section class="extras" id="extras-wrap" aria-labelledby="extras-title">
+        <div class="section-head">
+          <h2 id="extras-title">Made by me</h2>
+        </div>
+        <div id="extras"></div>
       </section>
 
-      <h2 class="md3-section-title">Case files</h2>
-      <p class="sr-only" id="results-status" role="status" aria-live="polite"></p>
-      <section id="cases" class="md3-card-grid"></section>
-      <p class="empty" id="empty" hidden>Nothing matches that yet.</p>
-
-      <h2 class="md3-section-title" id="extras-title">Made by me</h2>
-      <section id="extras" class="md3-card-grid"></section>
-
-      <hr class="md3-divider" />
-      <footer class="site-footer">
+      <footer class="foot">
         <p>Each case was checked on the day it was filed. Sites change, so check prices and features before you rely on them.</p>
       </footer>
-    </main>
+    </div>
 
     <script src="links.js"></script>
     <script src="app.js"></script>

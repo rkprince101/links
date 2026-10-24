@@ -1,5 +1,5 @@
-// Renders the case files from links.js as Material 3 components (CSS-only, see styles.css),
-// with search and kind filter chips.
+// Renders the cases from links.js in the Useful Cursor Desk style: latest-case banner, kind tabs with counts,
+// search, case cards (CASE NN, kind pill, tags, open + reel buttons) and the "Made by me" apps.
 (function () {
   var site = window.SITE || {};
   var cases = (window.CASES || []).slice().sort(function (a, b) { return b.n - a.n; });
@@ -16,79 +16,75 @@
     (children || []).forEach(function (c) { if (c) node.appendChild(typeof c === "string" ? document.createTextNode(c) : c); });
     return node;
   }
-  function icon(name, filled) { return el("span", { className: "ms" + (filled ? " filled" : ""), "aria-hidden": "true", text: name }); }
-  function newTab() { return el("span", { className: "sr-only", text: " (opens in a new tab)" }); }
+  function newTab() { return el("span", { className: "sr", text: " (opens in a new tab)" }); }
   function host(url) {
     try { return new URL(url).host.replace(/^www\./, ""); } catch (e) { return url; }
   }
+  function firstSentence(t) { var i = t.indexOf(". "); return i < 0 ? t : t.slice(0, i + 1); }
   function pad(n) { return n < 10 ? "0" + n : String(n); }
-  function tagIcon(t) {
-    if (/free|no sign|ad-free/i.test(t)) return "check_circle";
-    if (/android/i.test(t)) return "android";
-    if (/windows/i.test(t)) return "desktop_windows";
-    if (/web/i.test(t)) return "language";
-    if (/music/i.test(t)) return "music_note";
-    if (/open source/i.test(t)) return "code";
-    if (/locally|local/i.test(t)) return "computer";
-    return "label";
+  function slug(s) { return String(s).toLowerCase().replace(/[^a-z0-9]+/g, "-"); }
+  function openLabel(c) { return c.kind === "GitHub repo" ? "Open repo" : c.kind === "AI tool" ? "Open tool" : "Open site"; }
+  function link(cls, href, label) {
+    return el("a", { className: cls, href: href, target: "_blank", rel: "noopener" }, [label + " ↗", newTab()]);
   }
-  // tags are assist chips (display only)
-  function tag(t) { return el("span", { className: "md3-chip md3-chip--assist" }, [icon(tagIcon(t)), t]); }
 
-  // app bar + hero
-  if (site.title) $("title").textContent = site.title;
+  // header
+  $("eyebrow").textContent = site.title || "Useful websites, explained";
+  if (site.handle) $("handle").firstChild.textContent = site.handle;
   $("tagline").textContent = site.tagline || "";
-  $("handle-title").textContent = site.handle || "";
   $("ig").href = site.instagram || "#";
-  $("follow").href = site.instagram || "#";
-  $("count").textContent = cases.length + (cases.length === 1 ? " case filed" : " cases filed");
-  window.addEventListener("scroll", function () {
-    $("appbar").classList.toggle("md3-top-app-bar--scrolled", window.scrollY > 0);
-  }, { passive: true });
+  if (site.youtube) $("yt").href = site.youtube; else $("yt").hidden = true;
 
-  // filter chips (hidden while there is only one kind)
+  // latest case
+  var latest = cases[0];
+  if (latest) {
+    $("latest").appendChild(el("span", { className: "label", text: "Latest · Case " + pad(latest.n) }));
+    $("latest").appendChild(el("span", { className: "grow" }, [el("b", { text: latest.name }), " · " + firstSentence(latest.blurb)]));
+    $("latest").appendChild(el("span", { className: "actions" }, [
+      link("btn primary", latest.url, openLabel(latest)),
+      latest.reel ? link("btn", latest.reel, "Watch the reel") : null,
+    ]));
+    $("latest").hidden = false;
+  }
+
+  // kind tabs with counts (hidden while there is only one kind)
   var kinds = ["All"].concat(cases.map(function (c) { return c.kind; }).filter(function (k, i, a) { return a.indexOf(k) === i; }));
   var state = { kind: "All", q: "" };
-  function paintChips() {
-    [].forEach.call($("chips").children, function (c) {
-      var on = c.getAttribute("data-kind") === state.kind;
-      c.setAttribute("aria-pressed", on ? "true" : "false");
-      c.firstChild.hidden = !on;
-    });
-  }
   kinds.forEach(function (k) {
-    var b = el("button", { className: "md3-chip md3-chip--filter md3-state", type: "button", "data-kind": k }, [icon("check"), k]);
-    b.addEventListener("click", function () { state.kind = k; paintChips(); render(); });
-    $("chips").appendChild(b);
+    var n = k === "All" ? cases.length : cases.filter(function (c) { return c.kind === k; }).length;
+    var label = k === "All" ? "All" : k + (n === 1 ? "" : "s");
+    var b = el("button", { className: "tab", type: "button", "data-kind": k, "aria-pressed": k === "All" ? "true" : "false" }, [label, el("span", { className: "count", text: String(n) })]);
+    b.addEventListener("click", function () {
+      state.kind = k;
+      [].forEach.call($("tabs").children, function (t) { t.setAttribute("aria-pressed", t === b ? "true" : "false"); });
+      render();
+    });
+    $("tabs").appendChild(b);
   });
-  paintChips();
-  if (kinds.length < 3) $("chips").hidden = true;
+  if (kinds.length < 3) $("tabs").hidden = true;
   $("q").addEventListener("input", function (e) { state.q = e.target.value.trim().toLowerCase(); render(); });
 
-  // outlined card per case
-  function card(c, newest) {
-    var isRepo = c.kind === "GitHub repo";
-    return el("article", { className: "md3-card md3-card--outlined", id: "case-" + pad(c.n) }, [
-      el("div", { className: "md3-card__header" }, [
-        el("span", { className: "md3-avatar", "aria-hidden": "true", text: pad(c.n) }),
-        el("div", { className: "md3-card__heading" }, [
-          el("div", { className: "md3-card__overline", text: "Case " + pad(c.n) + " · " + c.kind }),
-          el("div", { className: "md3-card__subhead", text: host(c.url) + (c.date ? " · " + c.date : "") }),
+  function card(c) {
+    return el("article", { className: "case", id: "case-" + pad(c.n) }, [
+      el("div", { className: "row" }, [
+        el("span", { className: "num", text: "CASE " + pad(c.n) }),
+        el("span", { className: "row" }, [
+          c === latest ? el("span", { className: "pill new", text: "New" }) : null,
+          el("span", { className: "pill kind-" + slug(c.kind), text: c.kind }),
         ]),
-        newest ? el("span", { className: "md3-badge", text: "New" }) : null,
       ]),
-      el("div", { className: "md3-card__content" }, [
-        el("h3", { className: "md3-card__title", text: c.name }),
-        el("p", { className: "md3-card__text", text: c.blurb }),
-        (c.tags || []).length ? el("div", { className: "md3-chip-set" }, c.tags.map(tag)) : null,
-      ]),
-      el("div", { className: "md3-card__actions" }, [
-        c.reel ? el("a", { className: "md3-button md3-button--outlined md3-state", href: c.reel, target: "_blank", rel: "noopener" }, [icon("play_circle"), "Watch the reel", newTab()]) : null,
-        el("a", { className: "md3-button md3-button--filled md3-state", href: c.url, target: "_blank", rel: "noopener" }, [icon("open_in_new"), isRepo ? "Open repo" : "Open site", newTab()]),
+      el("h3", { text: c.name }),
+      el("p", { className: "sub", text: host(c.url) + (c.date ? " · filed " + c.date : "") }),
+      el("p", { className: "blurb", text: c.blurb }),
+      (c.tags || []).length ? el("div", { className: "tags" }, c.tags.map(function (t) { return el("span", { className: "tag", text: t }); })) : null,
+      el("div", { className: "actions" }, [
+        link("btn primary", c.url, openLabel(c)),
+        c.reel ? link("btn", c.reel, "Watch the reel") : null,
       ]),
     ]);
   }
 
+  var announce = false;
   function render() {
     var list = cases.filter(function (c) {
       if (state.kind !== "All" && c.kind !== state.kind) return false;
@@ -97,30 +93,24 @@
     });
     var box = $("cases");
     box.textContent = "";
-    list.forEach(function (c) { box.appendChild(card(c, c === cases[0])); });
+    list.forEach(function (c) { box.appendChild(card(c)); });
     $("empty").hidden = list.length > 0;
     if (announce) $("results-status").textContent = list.length + (list.length === 1 ? " case" : " cases");
   }
-  var announce = false;
   render();
   announce = true;
 
-  // filled cards for my own apps (full width)
-  if (!extras.length) $("extras-title").hidden = true;
-  $("extras").classList.add("md3-card-grid--single");
+  // my own apps
+  if (!extras.length) $("extras-wrap").hidden = true;
   extras.forEach(function (x) {
-    $("extras").appendChild(
-      el("article", { className: "md3-card md3-card--filled app-card" }, [
-        x.icon ? el("img", { className: "app-card__icon", src: x.icon, alt: x.name + " app icon", width: "72", height: "72", loading: "lazy" }) : null,
-        el("div", { className: "md3-card__content" }, [
-          el("h3", { className: "md3-card__title", text: x.name }),
-          el("p", { className: "md3-card__text", text: x.blurb }),
-          (x.tags || []).length ? el("div", { className: "md3-chip-set" }, x.tags.map(tag)) : null,
-        ]),
-        el("div", { className: "md3-card__actions" }, [
-          el("a", { className: "md3-button md3-button--filled md3-state", href: x.url, target: "_blank", rel: "noopener" }, [icon("shop"), x.cta || "Open", newTab()]),
-        ]),
+    $("extras").appendChild(el("article", { className: "app" }, [
+      x.icon ? el("img", { src: x.icon, alt: x.name + " app icon", width: "72", height: "72", loading: "lazy" }) : null,
+      el("div", { className: "body" }, [
+        el("h3", { text: x.name }),
+        el("p", { text: x.blurb }),
+        (x.tags || []).length ? el("div", { className: "tags" }, x.tags.map(function (t) { return el("span", { className: "tag", text: t }); })) : null,
+        el("div", { className: "actions" }, [link("btn primary", x.url, x.cta || "Open")]),
       ]),
-    );
+    ]));
   });
 })();

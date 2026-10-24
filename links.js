@@ -8,6 +8,7 @@ window.SITE = {
   tagline: "Every website, GitHub repo and AI tool from the reels, in one place.",
   handle: "@useful.cursor",
   instagram: "https://www.instagram.com/useful.cursor/",
+  youtube: "https://www.youtube.com/@useful.cursor",
 };
 
 // My own things, shown under the case files.

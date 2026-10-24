@@ -22,11 +22,14 @@ No build step. Hosted on GitHub Pages from the `main` branch root.
 ## Change the look or the name
 
 - Series name, title, tagline, handle: `SITE` at the top of `links.js`.
-- Look: Material 3 per the material-3 skill (github.com/hamen/material-3-skill): `--md-sys-*` colour, typescale, shape, motion and spacing tokens in `styles.css`, light and dark follow the
-  device setting), Roboto Flex + Material Symbols Rounded from Google Fonts.
+- Look: same style as the Useful Cursor Desk (claude.ai artifact): Material 3 baseline purple tokens at the top of
+  `styles.css` (light and dark follow the device), Roboto Flex wide headings and Roboto Mono case numbers from Google
+  Fonts, pill tabs with counts, case cards with a kind pill (Website / GitHub repo / AI tool). `app.js` renders
+  everything from `links.js`; `SITE.youtube` adds the YouTube chip.
 - My own apps (the "Made by me" section): `EXTRAS` in `links.js`.
 - `og.png` is the link preview image (1200x630).
 
 ## Preview locally
 
-Open `index.html` in a browser (works from the file system, no server needed).
+Serve the folder (`python -m http.server 8765`) and open http://127.0.0.1:8765/ (the page loads `links.js`, `app.js`
+and `styles.css` beside it).
