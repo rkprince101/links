@@ -27,6 +27,17 @@ window.EXTRAS = [
 
 window.CASES = [
   {
+    n: 6,
+    name: "Ballpoint Gambit",
+    url: "https://ballpoint-gambit.vercel.app/",
+    kind: "Website", // Website | GitHub repo | AI tool
+    blurb:
+      "Free chess in the browser where every piece is a doodle on paper: mushroom pawns, a bee queen, an owl king. A little ink bird called Quill teaches you in 11 lessons, then play at five levels from sleepy to sharp.",
+    tags: ["Free", "Browser game", "Learn chess"],
+    reel: "https://www.instagram.com/reel/De4GdDLMV3K/",
+    date: "2026-10-24",
+  },
+  {
     n: 5,
     name: "Permit Pending",
     url: "https://permit.petercai.com/",
