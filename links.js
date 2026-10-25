@@ -27,6 +27,17 @@ window.EXTRAS = [
 
 window.CASES = [
   {
+    n: 7,
+    name: "The Jantar Mantar Run",
+    url: "https://the-jantar-mantar-run.vercel.app/",
+    kind: "Website", // Website | GitHub repo | AI tool
+    blurb:
+      "A free comic arcade runner in the browser: pick a protester, then run 1,103 m of Delhi road to Jantar Mantar. Jump the barricades, dodge the water cannon and tear gas, and stay out of the police van. Made by Pratik Mahajan.",
+    tags: ["Free", "Browser game", "Works on phone"],
+    reel: "https://www.instagram.com/reel/De6cww6s-vn/",
+    date: "2026-10-25",
+  },
+  {
     n: 6,
     name: "Ballpoint Gambit",
     url: "https://ballpoint-gambit.vercel.app/",
