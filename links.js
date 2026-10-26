@@ -27,6 +27,17 @@ window.EXTRAS = [
 
 window.CASES = [
   {
+    n: 8,
+    name: "HTML-Anime",
+    url: "https://github.com/blixvip/html-anime",
+    kind: "GitHub repo", // Website | GitHub repo | AI tool
+    blurb:
+      "Prompt an anime and a coding agent draws it in HTML, no video model. Type one scene, the site turns it into a shot sheet with locked colors, then Claude, Codex, Cursor or Grok draws the film on real anime timing. Needs a coding agent (some are paid).",
+    tags: ["Open source", "MIT", "Animation"],
+    reel: "https://www.instagram.com/reel/De9BJTysc72/",
+    date: "2026-10-26",
+  },
+  {
     n: 7,
     name: "The Jantar Mantar Run",
     url: "https://the-jantar-mantar-run.vercel.app/",
