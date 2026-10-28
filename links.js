@@ -27,6 +27,17 @@ window.EXTRAS = [
 
 window.CASES = [
   {
+    n: 9,
+    name: "Mesh Avatar Studio",
+    url: "https://github.com/shinshin86/mesh-avatar-studio",
+    kind: "GitHub repo", // Website | GitHub repo | AI tool
+    blurb:
+      "Turn one illustration into an animated 2D avatar that blinks, talks, turns its head and sways its hair. A coding agent rigs it, you fix it by dragging dots, and the browser Player moves it with your face and voice (nothing uploaded). Needs Claude Code or Codex to make your own.",
+    tags: ["Open source", "MIT", "VTuber"],
+    reel: "https://www.instagram.com/reel/DfBcHfQspON/",
+    date: "2026-10-28",
+  },
+  {
     n: 8,
     name: "HTML-Anime",
     url: "https://github.com/blixvip/html-anime",
