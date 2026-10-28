@@ -27,6 +27,17 @@ window.EXTRAS = [
 
 window.CASES = [
   {
+    n: 10,
+    name: "Chess Coach",
+    url: "https://github.com/rkprince101/chess-coach",
+    kind: "GitHub repo", // Website | GitHub repo | AI tool
+    blurb:
+      "My own chess app that teaches while you play. Every move is graded, a bad one pauses the game while the coach explains it and plays out the punishment, then you retry. Three-step hints, 32 lessons. Android APK in the releases; the AI coach needs your own API key.",
+    tags: ["Free", "Open source", "Learn chess"],
+    reel: "https://www.instagram.com/reel/DfBpUDisZ03/",
+    date: "2026-10-28",
+  },
+  {
     n: 9,
     name: "Mesh Avatar Studio",
     url: "https://github.com/shinshin86/mesh-avatar-studio",
