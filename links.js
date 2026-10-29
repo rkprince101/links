@@ -27,6 +27,17 @@ window.EXTRAS = [
 
 window.CASES = [
   {
+    n: 11,
+    name: "Vocaloid-Style MV Pipeline",
+    url: "https://github.com/EGSECDA/vocaloid-style-mv-pipeline",
+    kind: "GitHub repo", // Website | GitHub repo | AI tool
+    blurb:
+      "Give an AI agent your song and its lyrics and get a hand-drawn style anime lyric MV back. It finds every beat, an image model draws the character and code renders every frame. Needs Claude Code or Codex and an image generator.",
+    tags: ["Open source", "MIT", "Anime"],
+    reel: "https://www.instagram.com/reel/DfFU0nNMbil/",
+    date: "2026-10-29",
+  },
+  {
     n: 10,
     name: "Chess Coach",
     url: "https://github.com/rkprince101/chess-coach",
