@@ -27,6 +27,28 @@ window.EXTRAS = [
 
 window.CASES = [
   {
+    n: 13,
+    name: "Insomnia",
+    url: "https://github.com/krishhgg/Insomnia",
+    kind: "GitHub repo", // Website | GitHub repo | AI tool
+    blurb:
+      "A free menu bar app that keeps your MacBook awake with the lid closed for a time you set, so an AI agent can keep working. Mutes audio, freezes Slack, WhatsApp and Discord, ends on low battery or heat. Apple Silicon, macOS 26+, experimental.",
+    tags: ["Free", "Open source", "macOS"],
+    reel: "https://www.instagram.com/reel/DfJy-FHs16N/",
+    date: "2026-10-31",
+  },
+  {
+    n: 12,
+    name: "Concat",
+    url: "https://github.com/jub0t/concat",
+    kind: "GitHub repo", // Website | GitHub repo | AI tool
+    blurb:
+      "A free, open-source CapCut replacement with no watermark, no account and no subscription: auto-captions, text-to-speech, background removal, keyframes and about 100 effects, exports up to 4K 60, all on your own computer. Beta.",
+    tags: ["Free", "Open source", "Video editor"],
+    reel: "https://www.instagram.com/reel/DfJyG8osJ7C/",
+    date: "2026-10-31",
+  },
+  {
     n: 11,
     name: "Vocaloid-Style MV Pipeline",
     url: "https://github.com/EGSECDA/vocaloid-style-mv-pipeline",
