@@ -27,6 +27,61 @@ window.EXTRAS = [
 
 window.CASES = [
   {
+    n: 14,
+    name: "RTK",
+    url: "https://github.com/rtk-ai/rtk",
+    kind: "GitHub repo", // Website | GitHub repo | AI tool
+    blurb:
+      "Shrinks your terminal output (test logs, git diffs) before your AI coding agent reads it, so a Claude plan lasts longer. Single binary; production use is free.",
+    tags: ["Free", "Open source", "Claude Code"],
+    reel: "https://www.instagram.com/reel/DfL1H60sTCt/",
+    date: "2026-11-01",
+  },
+  {
+    n: 14,
+    name: "Caveman",
+    url: "https://github.com/JuliusBrussee/caveman",
+    kind: "GitHub repo", // Website | GitHub repo | AI tool
+    blurb:
+      "Makes Claude answer in short sentences while code stays exact, and shrinks logs before the model reads them. Apache-2.0.",
+    tags: ["Free", "Open source", "Claude Code"],
+    reel: "https://www.instagram.com/reel/DfL1H60sTCt/",
+    date: "2026-11-01",
+  },
+  {
+    n: 14,
+    name: "Context Mode",
+    url: "https://github.com/mksglu/context-mode",
+    kind: "GitHub repo", // Website | GitHub repo | AI tool
+    blurb:
+      "Keeps big tool output in a sandbox instead of your chat and saves session memory across compactions. Elastic License 2.0.",
+    tags: ["Free", "Claude Code", "Plugin"],
+    reel: "https://www.instagram.com/reel/DfL1H60sTCt/",
+    date: "2026-11-01",
+  },
+  {
+    n: 14,
+    name: "Graphify",
+    url: "https://github.com/Graphify-Labs/graphify",
+    kind: "GitHub repo", // Website | GitHub repo | AI tool
+    blurb:
+      "Turns your codebase into a knowledge graph, so your AI agent asks the map instead of re-reading files. Code is parsed locally. Apache-2.0.",
+    tags: ["Free", "Open source", "Runs locally"],
+    reel: "https://www.instagram.com/reel/DfL1H60sTCt/",
+    date: "2026-11-01",
+  },
+  {
+    n: 14,
+    name: "Token Optimizer",
+    url: "https://github.com/alexgreensh/token-optimizer",
+    kind: "GitHub repo", // Website | GitHub repo | AI tool
+    blurb:
+      "Audits what your Claude Code setup loads every session, checkpoints before compaction and shows a local token and cost dashboard. No telemetry.",
+    tags: ["Free for personal use", "Claude Code"],
+    reel: "https://www.instagram.com/reel/DfL1H60sTCt/",
+    date: "2026-11-01",
+  },
+  {
     n: 13,
     name: "Insomnia",
     url: "https://github.com/krishhgg/Insomnia",
