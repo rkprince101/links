@@ -27,6 +27,28 @@ window.EXTRAS = [
 
 window.CASES = [
   {
+    n: 16,
+    name: "Handy",
+    url: "https://github.com/cjpais/Handy",
+    kind: "GitHub repo", // Website | GitHub repo | AI tool
+    blurb:
+      "Hold a shortcut, talk, let go, and your words land in any app. Free, open source and completely offline; pick Whisper or Parakeet. Windows, Mac and Linux.",
+    tags: ["Free", "Open source", "Runs offline"],
+    reel: "https://www.instagram.com/reel/DfSSVY9sax5/",
+    date: "2026-11-03",
+  },
+  {
+    n: 16,
+    name: "Hex",
+    url: "https://github.com/anomalyco/hex",
+    kind: "GitHub repo", // Website | GitHub repo | AI tool
+    blurb:
+      "Hold Ctrl+Space, talk, let go, and it pastes wherever you're typing. Local speech models (10+ to choose from); Windows support is new and still beta. MIT.",
+    tags: ["Free", "Open source", "Runs offline"],
+    reel: "https://www.instagram.com/reel/DfSSVY9sax5/",
+    date: "2026-11-03",
+  },
+  {
     n: 15,
     name: "Impeccable",
     url: "https://github.com/pbakaus/impeccable",
