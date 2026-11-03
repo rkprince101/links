@@ -27,6 +27,39 @@ window.EXTRAS = [
 
 window.CASES = [
   {
+    n: 15,
+    name: "Impeccable",
+    url: "https://github.com/pbakaus/impeccable",
+    kind: "GitHub repo", // Website | GitHub repo | AI tool
+    blurb:
+      "Design commands for your coding agent (bolder, polish, critique, audit) plus a slop detector with 62 rules that needs no API key. Apache-2.0.",
+    tags: ["Free", "Open source", "Design"],
+    reel: "https://www.instagram.com/reel/DfSDHLusRSM/",
+    date: "2026-11-03",
+  },
+  {
+    n: 15,
+    name: "Taste Skill",
+    url: "https://github.com/Leonxlnx/taste-skill",
+    kind: "GitHub repo", // Website | GitHub repo | AI tool
+    blurb:
+      "Gives your coding agent an art direction, real credited photos and a browser check of its own page, so it stops building the average landing page. MIT. Builds are token-heavy.",
+    tags: ["Free", "Open source", "Design"],
+    reel: "https://www.instagram.com/reel/DfSDHLusRSM/",
+    date: "2026-11-03",
+  },
+  {
+    n: 15,
+    name: "Hallmark",
+    url: "https://github.com/Nutlope/hallmark",
+    kind: "GitHub repo", // Website | GitHub repo | AI tool
+    blurb:
+      "A design skill with 50 themes and a lint that flags the tells of a machine-made page before it ships. MIT, by Together AI.",
+    tags: ["Free", "Open source", "Design"],
+    reel: "https://www.instagram.com/reel/DfSDHLusRSM/",
+    date: "2026-11-03",
+  },
+  {
     n: 14,
     name: "RTK",
     url: "https://github.com/rtk-ai/rtk",
