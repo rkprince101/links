@@ -27,6 +27,17 @@ window.EXTRAS = [
 
 window.CASES = [
   {
+    n: 17,
+    name: "CrossPet",
+    url: "https://github.com/lokicorvus/crosspet",
+    kind: "GitHub repo", // Website | GitHub repo | AI tool
+    blurb:
+      "A desktop pet that turns into whichever AI you use (Claude, GPT, DeepSeek, Gemini...) and acts out what it's doing: reading files, running commands, finishing jobs. Windows and Mac. Fan project; art CC BY-NC-SA.",
+    tags: ["Free", "Open source", "Anime"],
+    reel: "https://www.instagram.com/reel/DfUmI3VMA-7/",
+    date: "2026-11-04",
+  },
+  {
     n: 16,
     name: "Handy",
     url: "https://github.com/cjpais/Handy",
