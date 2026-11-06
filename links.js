@@ -27,6 +27,17 @@ window.EXTRAS = [
 
 window.CASES = [
   {
+    n: 18,
+    name: "CleanYourTV",
+    url: "https://github.com/Gathin23/cleanyourtv",
+    kind: "GitHub repo", // Website | GitHub repo | AI tool
+    blurb:
+      "Strips the ads and bloat from an Android or Google TV with an AI coding assistant and gives it a clean Apple TV-style home. No root, one-line restore. Won't stop YouTube ads, and some TVs have got stuck in boot loops, so it's at your own risk.",
+    tags: ["Free", "Open source", "Claude Code"],
+    reel: "https://www.instagram.com/reel/DfZ-RWIMivZ/",
+    date: "2026-11-06",
+  },
+  {
     n: 17,
     name: "CrossPet",
     url: "https://github.com/lokicorvus/crosspet",
