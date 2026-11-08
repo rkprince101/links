@@ -27,6 +27,17 @@ window.EXTRAS = [
 
 window.CASES = [
   {
+    n: 19,
+    name: "pixelfx",
+    url: "https://patch-gg.github.io/pixelfx/",
+    kind: "GitHub repo", // Website | GitHub repo | AI tool
+    blurb:
+      "244 pixel art effects, every one a small piece of code. Play them in your browser, change the palette, then copy the code or export sprite sheets for Godot, Unity and more. MIT, with a Claude Code skill. Code: github.com/patch-gg/pixelfx",
+    tags: ["Free", "Open source", "Game dev"],
+    reel: "https://www.instagram.com/reel/Dfd1_Ljs6iT/",
+    date: "2026-11-08",
+  },
+  {
     n: 18,
     name: "CleanYourTV",
     url: "https://github.com/Gathin23/cleanyourtv",
